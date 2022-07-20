@@ -40,16 +40,25 @@ public class LevelDataContainer : MonoBehaviour
     public void ResetData()
     {
         waitingForSpawnNotes.Clear();
+        foreach (var list in spawnedNotes)
+        {
+            list.Clear();
+        }
     }
 
     public void Load()
     {
+        ResetData();
+        
         var beatmap = OsuParsers.Decoders.BeatmapDecoder.Decode(Application.streamingAssetsPath + "/" + "RPG" + "/" +
                                                                 "artist - title (asj0216) [Easy].osu");
 
-        //var beatmap = OsuParsers.Decoders.BeatmapDecoder.Decode(Application.streamingAssetsPath + "/" + "ARForest - Hidden Ending" + "/" + "ARForest - Hidden Ending (asj0216) [Insane].osu");
+        var count = 0;
         foreach (var obj in beatmap.HitObjects)
         {
+            count++;
+            var isLast = count == beatmap.HitObjects.Count;
+
             var index = Mathf.FloorToInt(obj.Position.X * 4 / 512);
 
             var eventType = index switch
@@ -63,7 +72,8 @@ public class LevelDataContainer : MonoBehaviour
             {
                 startTime = obj.StartTime,
                 endTime = obj.EndTime,
-                eventType = eventType
+                eventType = eventType,
+                lastNote = isLast
             };
             waitingForSpawnNotes.Add(note);
         }

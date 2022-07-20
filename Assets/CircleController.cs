@@ -10,7 +10,6 @@ public class CircleController : MonoBehaviour
     private Sequence _sequence;
     private int _moveCount, _ipCount;
 
-    public AudioSource audioSource;
     public GameTimer timer;
 
     private void Start()
@@ -106,8 +105,6 @@ public class CircleController : MonoBehaviour
                 inputPoints[i].spriteRenderer.color = Color.yellow;
             }
         }
-
-        audioSource.Play();
     }
 
     private void Update()

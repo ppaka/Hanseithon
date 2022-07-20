@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelList : MonoBehaviour
 {
@@ -26,5 +27,16 @@ public class LevelList : MonoBehaviour
         body.DOKill();
         body.DOMoveX(rightTf.transform.position.x, 0.5f).SetEase(Ease.OutQuart).Play();       
         titleText.text = titles[_count];
+    }
+
+    public void SceneOne()
+    {
+        GameManager.CurrentScene = "SampleScene";
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void BackToTitle()
+    {
+        SceneManager.LoadScene("Title");
     }
 }

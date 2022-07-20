@@ -23,5 +23,6 @@ namespace Note
         public int startTime, endTime;
         public int number;
         public int pointIndex;
+        public bool lastNote;
     }
 }

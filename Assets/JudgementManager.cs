@@ -1,4 +1,5 @@
-﻿using Note;
+﻿using DG.Tweening;
+using Note;
 using UnityEngine;
 
 public class JudgementManager : MonoBehaviour
@@ -7,6 +8,9 @@ public class JudgementManager : MonoBehaviour
     public int[] judgementLevel = { 48, 88, 138, 178};
     public string[] judgementStrings = {"Perfect", "Great", "Good", "Bad"};
     public CircleController circleController;
+    public CanvasGroup overGroup;
+    public CanvasGroup clearGroup;
+    private bool _gameOver;
 
     private void Update()
     {
@@ -17,10 +21,19 @@ public class JudgementManager : MonoBehaviour
             if (note.startTime + judgementLevel[3] < timer.TimeAsMs)
             {
                 // 미스처리
+                if (_gameOver) return;
                 LevelDataContainer.Instance.spawnedNotes[i].RemoveAt(0);
-                print(note.startTime + ":Miss");
+                overGroup.gameObject.SetActive(true);
+                _gameOver = true;
+                overGroup.DOFade(1, 1).SetUpdate(true).OnComplete(() =>
+                {
+                    overGroup.interactable = true;
+                }).Play();
+                timer.audioSource.DOPitch(0, 1).SetUpdate(true).Play();
+                DOTween.To(() => Time.timeScale, value => Time.timeScale = value, 0, 1).SetUpdate(true).Play();
                 
-                var result = circleController.inputPoints[note.pointIndex].typeQueue.TryDequeue(out var type);
+
+                /*var result = circleController.inputPoints[note.pointIndex].typeQueue.TryDequeue(out var type);
                 if (!result) continue;
                 var result2 = circleController.inputPoints[note.pointIndex].eventQueue.TryDequeue(out var evtType);
                 if (!result2) continue;
@@ -37,13 +50,14 @@ public class JudgementManager : MonoBehaviour
                             NoteType.Fast => Color.red,
                             _ => Color.blue
                         };
-                }
+                }*/
             }
         }
     }
 
     public void OnInput(int index)
     {
+        if (!timer.gameStarted || _gameOver) return;
         for (var i = 0; i < judgementLevel.Length; i++)
         {
             if (LevelDataContainer.Instance.spawnedNotes[index].Count == 0) return;
@@ -54,6 +68,10 @@ public class JudgementManager : MonoBehaviour
                 LevelDataContainer.Instance.spawnedNotes[index].RemoveAt(0);
                 print(judgementStrings[i]);
                 circleController.inputPoints[note.pointIndex].PlayHitAnim();
+                if (note.lastNote)
+                {
+                    
+                }
                 
                 var result = circleController.inputPoints[note.pointIndex].typeQueue.TryDequeue(out var type);
                 if (!result) continue;
