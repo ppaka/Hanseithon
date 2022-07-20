@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Note;
 using UnityEngine;
 
 public class CircleController : MonoBehaviour
@@ -38,13 +39,15 @@ public class CircleController : MonoBehaviour
 
         var number = 0;
 
-        Note previousNote = null;
+        Note.Note previousNote = null;
+        bool isReverseToggled = false;
         foreach (var note in LevelDataContainer.Instance.waitingForSpawnNotes)
         {
             note.number = ++number;
             if (previousNote != null)
             {
-                AddNextTween(ref _sequence, previousNote.startTime * 0.001f, (note.startTime - previousNote.startTime) * 0.001f);
+                if (note.eventType == NoteEventType.Reverse) isReverseToggled = !isReverseToggled;
+                AddNextTween(ref _sequence, previousNote.startTime * 0.001f, (note.startTime - previousNote.startTime) * 0.001f, false, isReverseToggled);
 
                 var lastTimegap = LevelDataContainer.Instance.timeGap;
                 LevelDataContainer.Instance.timeGap = note.startTime - previousNote.startTime;
@@ -55,8 +58,10 @@ public class CircleController : MonoBehaviour
                     <= -1 => NoteType.Fast,
                     _ => NoteType.Slow
                 };
-
-                inputPoints[_ipCount++ % inputPoints.Length].typeQueue.Enqueue(note.type);
+                
+                inputPoints[_ipCount % inputPoints.Length].typeQueue.Enqueue(note.type);
+                if (!isReverseToggled) _ipCount++;
+                else _ipCount--;
                 note.pointIndex = _ipCount % inputPoints.Length;
                 LevelDataContainer.Instance.spawnedNotes[_ipCount % inputPoints.Length].Add(note);
                 previousNote = note;
@@ -99,14 +104,17 @@ public class CircleController : MonoBehaviour
         _sequence.GotoWithCallbacks(timer.Time);
     }
 
-    private void AddNextTween(ref Sequence sequence, float time, float duration, bool lastNote = false)
+    private void AddNextTween(ref Sequence sequence, float time, float duration, bool lastNote = false, bool isReverse = false)
     {
-        ++_moveCount;
-        sequence.Insert(time, circle.DOMove(starPoints[_moveCount % starPoints.Length].position, duration / 2));
+        if (!isReverse) ++_moveCount;
+        else --_moveCount;
+        sequence.Insert(time, circle.DOMove(starPoints[Mathf.Abs(_moveCount % starPoints.Length)].position, duration / 2));
         if (!lastNote)
         {
+            if (!isReverse) ++_moveCount;
+            else --_moveCount;
             sequence.Insert(time + duration / 2,
-                circle.DOMove(starPoints[++_moveCount % starPoints.Length].position, duration / 2));
+                circle.DOMove(starPoints[Mathf.Abs(_moveCount % starPoints.Length)].position, duration / 2));
         }
     }
 }

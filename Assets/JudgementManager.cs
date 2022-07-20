@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Note;
+using UnityEngine;
 
 public class JudgementManager : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class JudgementManager : MonoBehaviour
             if (note.startTime + judgementLevel[3] < timer.TimeAsMs)
             {
                 // 미스처리
+                LevelDataContainer.Instance.spawnedNotes[i].RemoveAt(0);
+                print(note.startTime + ":Miss");
+                
                 var result = circleController.inputPoints[note.pointIndex].typeQueue.TryDequeue(out var type);
                 if (!result) continue;
-                print("Miss");
                 circleController.inputPoints[note.pointIndex].spriteRenderer.color =
                     type switch
                     {
@@ -26,8 +29,6 @@ public class JudgementManager : MonoBehaviour
                         NoteType.Fast => Color.red,
                         _ => Color.blue
                     };
-
-                LevelDataContainer.Instance.spawnedNotes[i].RemoveAt(0);
             }
         }
     }
@@ -41,7 +42,9 @@ public class JudgementManager : MonoBehaviour
             if (timer.TimeAsMs - note.startTime >= -judgementLevel[i]
                 && timer.TimeAsMs - note.startTime <= judgementLevel[i])
             {
+                LevelDataContainer.Instance.spawnedNotes[index].RemoveAt(0);
                 print(judgementStrings[i]);
+                
                 var result = circleController.inputPoints[note.pointIndex].typeQueue.TryDequeue(out var type);
                 if (!result) continue;
                 circleController.inputPoints[note.pointIndex].spriteRenderer.color =
@@ -51,7 +54,6 @@ public class JudgementManager : MonoBehaviour
                         NoteType.Fast => Color.red,
                         _ => Color.blue
                     };
-                LevelDataContainer.Instance.spawnedNotes[i].RemoveAt(0);
                 break;
             }
         }
