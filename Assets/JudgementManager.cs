@@ -70,13 +70,13 @@ public class JudgementManager : MonoBehaviour
                 circleController.inputPoints[note.pointIndex].PlayHitAnim();
                 if (note.lastNote)
                 {
-                    
+                    Camera.main!.transform.DOLocalRotate(new Vector3(0,0,360), 1, RotateMode.LocalAxisAdd).SetUpdate(true).SetEase(Ease.InOutQuart).Play();
                 }
                 
                 var result = circleController.inputPoints[note.pointIndex].typeQueue.TryDequeue(out var type);
-                if (!result) continue;
+                if (!result) circleController.inputPoints[note.pointIndex].spriteRenderer.color = Color.white;
                 var result2 = circleController.inputPoints[note.pointIndex].eventQueue.TryDequeue(out var evtType);
-                if (!result2) continue;
+                if (!result2) circleController.inputPoints[note.pointIndex].spriteRenderer.color = Color.white;
                 if (evtType == NoteEventType.Reverse)
                 {
                     circleController.inputPoints[note.pointIndex].spriteRenderer.color = Color.yellow;
