@@ -22,13 +22,22 @@ public class JudgementManager : MonoBehaviour
                 
                 var result = circleController.inputPoints[note.pointIndex].typeQueue.TryDequeue(out var type);
                 if (!result) continue;
-                circleController.inputPoints[note.pointIndex].spriteRenderer.color =
-                    type switch
-                    {
-                        NoteType.Normal => Color.white,
-                        NoteType.Fast => Color.red,
-                        _ => Color.blue
-                    };
+                var result2 = circleController.inputPoints[note.pointIndex].eventQueue.TryDequeue(out var evtType);
+                if (!result2) continue;
+                if (evtType == NoteEventType.Reverse)
+                {
+                    circleController.inputPoints[note.pointIndex].spriteRenderer.color = Color.yellow;
+                }
+                else
+                {
+                    circleController.inputPoints[note.pointIndex].spriteRenderer.color =
+                        type switch
+                        {
+                            NoteType.Normal => Color.white,
+                            NoteType.Fast => Color.red,
+                            _ => Color.blue
+                        };
+                }
             }
         }
     }
@@ -44,16 +53,26 @@ public class JudgementManager : MonoBehaviour
             {
                 LevelDataContainer.Instance.spawnedNotes[index].RemoveAt(0);
                 print(judgementStrings[i]);
+                circleController.inputPoints[note.pointIndex].PlayHitAnim();
                 
                 var result = circleController.inputPoints[note.pointIndex].typeQueue.TryDequeue(out var type);
                 if (!result) continue;
-                circleController.inputPoints[note.pointIndex].spriteRenderer.color =
-                    type switch
-                    {
-                        NoteType.Normal => Color.white,
-                        NoteType.Fast => Color.red,
-                        _ => Color.blue
-                    };
+                var result2 = circleController.inputPoints[note.pointIndex].eventQueue.TryDequeue(out var evtType);
+                if (!result2) continue;
+                if (evtType == NoteEventType.Reverse)
+                {
+                    circleController.inputPoints[note.pointIndex].spriteRenderer.color = Color.yellow;
+                }
+                else
+                {
+                    circleController.inputPoints[note.pointIndex].spriteRenderer.color =
+                        type switch
+                        {
+                            NoteType.Normal => Color.white,
+                            NoteType.Fast => Color.red,
+                            _ => Color.blue
+                        };
+                }
                 break;
             }
         }

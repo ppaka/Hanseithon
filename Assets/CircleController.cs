@@ -60,6 +60,7 @@ public class CircleController : MonoBehaviour
                 };
                 
                 inputPoints[_ipCount % inputPoints.Length].typeQueue.Enqueue(note.type);
+                inputPoints[_ipCount % inputPoints.Length].eventQueue.Enqueue(note.eventType);
                 if (!isReverseToggled) _ipCount++;
                 else _ipCount--;
                 note.pointIndex = _ipCount % inputPoints.Length;
@@ -94,6 +95,16 @@ public class CircleController : MonoBehaviour
                     NoteType.Fast => Color.red,
                     _ => Color.blue
                 };
+        }
+        
+        for (var i = 0; i < inputPoints.Length; i++)
+        {
+            var result = inputPoints[i].eventQueue.TryDequeue(out var type);
+            if (!result) continue;
+            if (type == NoteEventType.Reverse)
+            {
+                inputPoints[i].spriteRenderer.color = Color.yellow;
+            }
         }
 
         audioSource.Play();

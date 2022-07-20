@@ -52,15 +52,12 @@ public class LevelDataContainer : MonoBehaviour
         {
             var index = Mathf.FloorToInt(obj.Position.X * 4 / 512);
 
-            var eventType = Note.NoteEventType.Normal;
-            if (index == 0)
+            var eventType = index switch
             {
-                eventType = Note.NoteEventType.Normal;
-            }
-            else if (index == 1)
-            {
-                eventType = Note.NoteEventType.Reverse;
-            }
+                0 => Note.NoteEventType.Normal,
+                1 => Note.NoteEventType.Reverse,
+                _ => Note.NoteEventType.Normal
+            };
 
             var note = new Note.Note
             {
@@ -70,18 +67,5 @@ public class LevelDataContainer : MonoBehaviour
             };
             waitingForSpawnNotes.Add(note);
         }
-
-        /*var note1 = new Note
-        {
-            startTime = 1000
-        };
-        var note2 = new Note
-        {
-            startTime = 2000
-        };
-        timeGap = 1000;
-        
-        waitingForSpawnNotes.Add(note1);
-        waitingForSpawnNotes.Add(note2);*/
     }
 }
