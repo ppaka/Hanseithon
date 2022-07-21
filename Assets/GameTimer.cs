@@ -9,6 +9,7 @@ public class GameTimer : MonoBehaviour
     public bool gameStarted;
     public GameObject pauseButton;
     public TMP_Text countText;
+    public GameObject hpObject;
 
     public void ResetTimer()
     {
@@ -29,25 +30,21 @@ public class GameTimer : MonoBehaviour
     {
         countText.gameObject.SetActive(true);
         countText.text = "준비";
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(2);
         countText.text = "3";
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(0.6f);
         countText.text = "2";
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(0.6f);
         countText.text = "1";
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(0.6f);
         countText.text = "시작!";
-        yield return new WaitForSecondsRealtime(1f);
-        countText.gameObject.SetActive(false);
-        StartGame();
-    }
-
-    private void StartGame()
-    {
         gameStarted = true;
+        yield return new WaitForSecondsRealtime(0.6f);
+        countText.gameObject.SetActive(false);
         UnityEngine.Time.timeScale = 1;
         ResetTimer();
         audioSource.Play();
         pauseButton.SetActive(true);
+        hpObject.SetActive(true);
     }
 }

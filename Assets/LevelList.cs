@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -10,6 +12,11 @@ public class LevelList : MonoBehaviour
     public RectTransform body;
     public string[] titles;
     public TMP_Text titleText;
+
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
 
     public void MoveLeft()
     {
@@ -31,12 +38,45 @@ public class LevelList : MonoBehaviour
 
     public void SceneOne()
     {
+        DOTween.KillAll();
         GameManager.CurrentScene = "SampleScene";
+        if (Application.isMobilePlatform && !Application.isEditor)
+        {
+            GameManager.LevelPath = Path.GetFullPath(Application.persistentDataPath + "/" + "RPG" + "/" +
+                                                     "artist - title (asj0216) [Easy].osu");
+            print(GameManager.LevelPath);
+        }
+        else
+        {
+            GameManager.LevelPath = Path.GetFullPath(Application.streamingAssetsPath + "\\" + "RPG" + "\\" +
+                                                     "artist - title (asj0216) [Easy].osu");
+        }
+        
         SceneManager.LoadScene("SampleScene");
+    }
+    
+    public void SceneTwo()
+    {
+        DOTween.KillAll();
+        GameManager.CurrentScene = "SampleScene 1";
+        if (Application.isMobilePlatform && !Application.isEditor)
+        {
+            GameManager.LevelPath = Path.GetFullPath(Application.persistentDataPath + "/" + "R" + "/" +
+                                                     "Plum - R (asj0216) [ForHanseithon].osu");
+            print(GameManager.LevelPath);
+        }
+        else
+        {
+            GameManager.LevelPath = Path.GetFullPath(Application.streamingAssetsPath + "\\" + "R" + "\\" +
+                                                     "Plum - R (asj0216) [ForHanseithon].osu");
+        }
+        
+        SceneManager.LoadScene("SampleScene 1");
     }
 
     public void BackToTitle()
     {
+        DOTween.KillAll();
         SceneManager.LoadScene("Title");
     }
 }

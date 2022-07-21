@@ -49,9 +49,7 @@ public class LevelDataContainer : MonoBehaviour
     public void Load()
     {
         ResetData();
-        
-        var beatmap = OsuParsers.Decoders.BeatmapDecoder.Decode(Application.streamingAssetsPath + "/" + "RPG" + "/" +
-                                                                "artist - title (asj0216) [Easy].osu");
+        var beatmap = OsuParsers.Decoders.BeatmapDecoder.Decode(GameManager.LevelPath);
 
         var count = 0;
         foreach (var obj in beatmap.HitObjects)

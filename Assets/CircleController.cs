@@ -58,12 +58,12 @@ public class CircleController : MonoBehaviour
                     _ => NoteType.Slow
                 };
                 
-                inputPoints[_ipCount % inputPoints.Length].typeQueue.Enqueue(note.type);
-                inputPoints[_ipCount % inputPoints.Length].eventQueue.Enqueue(note.eventType);
+                inputPoints[Mathf.Abs(_ipCount % inputPoints.Length)].typeQueue.Enqueue(note.type);
+                inputPoints[Mathf.Abs(_ipCount % inputPoints.Length)].eventQueue.Enqueue(note.eventType);
                 if (!isReverseToggled) _ipCount++;
                 else _ipCount--;
-                note.pointIndex = _ipCount % inputPoints.Length;
-                LevelDataContainer.Instance.spawnedNotes[_ipCount % inputPoints.Length].Add(note);
+                note.pointIndex = Mathf.Abs(_ipCount % inputPoints.Length);
+                LevelDataContainer.Instance.spawnedNotes[Mathf.Abs(_ipCount % inputPoints.Length)].Add(note);
                 previousNote = note;
             }
             else
@@ -103,6 +103,27 @@ public class CircleController : MonoBehaviour
             if (type == NoteEventType.Reverse)
             {
                 inputPoints[i].spriteRenderer.color = Color.yellow;
+            }
+        }
+        
+        LevelDataContainer.Instance.spawnedNotes[0].RemoveAt(0);
+        var res = inputPoints[0].typeQueue.TryDequeue(out var tp);
+        if (res)
+        {
+            inputPoints[0].spriteRenderer.color =
+                tp switch
+                {
+                    NoteType.Normal => Color.white,
+                    NoteType.Fast => Color.red,
+                    _ => Color.blue
+                };
+        }
+        var res2 = inputPoints[0].eventQueue.TryDequeue(out var tp1);
+        if (res2)
+        {
+            if (tp1 == NoteEventType.Reverse)
+            {
+                inputPoints[0].spriteRenderer.color = Color.yellow;
             }
         }
     }
