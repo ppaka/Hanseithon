@@ -60,7 +60,19 @@ public class JudgementManager : MonoBehaviour
                     }
                     hpText.text = _hp.ToString();
                 }
-
+                if (note.lastNote)
+                {
+                    timer.pauseButton.SetActive(false);
+                    Camera.main!.transform.DOLocalRotate(new Vector3(0,0,360), 1, RotateMode.LocalAxisAdd).SetUpdate(true).SetEase(Ease.OutQuart)
+                        .OnComplete(() =>
+                        {
+                            clearRetryButton.DOMoveX(clearRetryButtonEnd.position.x, 0.3f).SetEase(Ease.OutQuad)
+                                .SetUpdate(true).SetDelay(0.4f).Play();
+                            clearBackButton.DOMoveX(clearBackButtonEnd.position.x, 0.3f).SetEase(Ease.OutQuad)
+                                .SetUpdate(true).SetDelay(0.6f).Play();
+                            
+                        }).Play();
+                }
             }
         }
     }
