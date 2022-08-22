@@ -48,11 +48,10 @@ public class LevelList : MonoBehaviour
     public void SceneTwo()
     {
         DOTween.KillAll();
-        GameManager.CurrentScene = "SampleScene 1";
         GameManager.LevelPath = Path.GetFullPath(Path.Join(Application.streamingAssetsPath, "R",
             "Plum - R (asj0216) [ForHanseithon].osu"));
 
-        GameManager.CurrentScene = "GameScene 0";
+        GameManager.CurrentScene = "GameScene 1";
         SceneManager.LoadScene(GameManager.CurrentScene);
     }
 
