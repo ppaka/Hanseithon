@@ -11,8 +11,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/636b3e5dc45c46c3912e16d43ed5e9d91e600/6e/ba5fd6c2/BeatmapDecoder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/InputPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LevelList.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/Unity/Hanseithon/Assets/LevelList.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PauseManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/Projects/Unity/Hanseithon/Assets/StreamingAssets/RPG/artist - title (asj0216) [Easy].osu.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/Unity/Hanseithon/Assets/Scenes/GameScene 1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TitleScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TitleSettings.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -89,6 +90,7 @@
       <workItem from="1658371867024" duration="6014000" />
       <workItem from="1658468820306" duration="24000" />
       <workItem from="1661185672967" duration="9035000" />
+      <workItem from="1661194962852" duration="302000" />
     </task>
     <task id="LOCAL-00001" summary="버그 수정, 소리 설정 구현, 설정 값 저장">
       <created>1661194685128</created>
@@ -97,7 +99,21 @@
       <option name="project" value="LOCAL" />
       <updated>1661194685128</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="씬 불러오기 문제 해결, 음악 볼륨 슬라이더 문제 해결">
+      <created>1661195062256</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661195062256</updated>
+    </task>
+    <task id="LOCAL-00003" summary="잘못된 이름 수정">
+      <created>1661195102982</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661195102982</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
@@ -118,6 +134,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="버그 수정, 소리 설정 구현, 설정 값 저장" />
-    <option name="LAST_COMMIT_MESSAGE" value="버그 수정, 소리 설정 구현, 설정 값 저장" />
+    <MESSAGE value="씬 불러오기 문제 해결, 음악 볼륨 슬라이더 문제 해결" />
+    <MESSAGE value="잘못된 이름 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="잘못된 이름 수정" />
   </component>
 </project>
