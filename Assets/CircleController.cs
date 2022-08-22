@@ -11,57 +11,66 @@ public class CircleController : MonoBehaviour
     private int _moveCount, _ipCount;
 
     public GameTimer timer;
+    private bool _isLoaded;
 
     private void Start()
     {
+        StartLoad();
+    }
+
+    private void OnLoadComplete()
+    {
         DOTween.SetTweensCapacity(5000, 50);
-        /*circle.position = starPoints[0].position;
-        _sequence = DOTween.Sequence()
-            .Insert(0, circle.DOMove(starPoints[1].position, 0.5f))
-            .Insert(0.5f, circle.DOMove(starPoints[2].position, 0.5f))
-            .Insert(1f, circle.DOMove(starPoints[3].position, 0.5f))
-            .Insert(1.5f, circle.DOMove(starPoints[4].position, 0.5f))
-            .Insert(2, circle.DOMove(starPoints[5].position, 0.5f))
-            .Insert(2.5f, circle.DOMove(starPoints[6].position, 0.5f))
-            .Insert(3, circle.DOMove(starPoints[7].position, 0.5f))
-            .Insert(3.5f, circle.DOMove(starPoints[8].position, 0.5f))
-            .Insert(4, circle.DOMove(starPoints[9].position, 0.5f))
-            .Insert(4.5f, circle.DOMove(starPoints[0].position, 0.5f))
-            .SetLoops(-1, LoopType.Restart);
-
-        _sequence.Play();*/
-
-        LevelDataContainer.Instance.Load();
 
         circle.position = starPoints[0].position;
         _sequence = DOTween.Sequence();
 
         var number = 0;
-
         Note.Note previousNote = null;
-        bool isReverseToggled = false;
+        var isReverseToggled = false;
+
         foreach (var note in LevelDataContainer.Instance.waitingForSpawnNotes)
         {
             note.number = ++number;
             if (previousNote != null)
             {
                 if (note.eventType == NoteEventType.Reverse) isReverseToggled = !isReverseToggled;
-                AddNextTween(ref _sequence, previousNote.startTime * 0.001f, (note.startTime - previousNote.startTime) * 0.001f, false, isReverseToggled);
+                AddNextTween(ref _sequence, previousNote.startTime * 0.001f,
+                    (note.startTime - previousNote.startTime) * 0.001f, isReverseToggled);
 
-                var lastTimegap = LevelDataContainer.Instance.timeGap;
+                var lastTimeGap = LevelDataContainer.Instance.timeGap;
                 LevelDataContainer.Instance.timeGap = note.startTime - previousNote.startTime;
-                var timeCal = LevelDataContainer.Instance.timeGap - lastTimegap;
+                var timeCal = LevelDataContainer.Instance.timeGap - lastTimeGap;
                 note.type = timeCal switch
                 {
-                    <= 1 and >= -1 => NoteType.Normal,
-                    <= -1 => NoteType.Fast,
+                    <= 2 and >= -2 => NoteType.Normal,
+                    <= -2 => NoteType.Fast,
                     _ => NoteType.Slow
                 };
-                
-                inputPoints[Mathf.Abs(_ipCount % inputPoints.Length)].typeQueue.Enqueue(note.type);
-                inputPoints[Mathf.Abs(_ipCount % inputPoints.Length)].eventQueue.Enqueue(note.eventType);
+
+                if (_ipCount < 0)
+                {
+                    _ipCount = inputPoints.Length - 1;
+                }
+                else if (_ipCount >= inputPoints.Length)
+                {
+                    _ipCount = 0;
+                }
+
+                inputPoints[Mathf.Abs(_ipCount % inputPoints.Length)].typeQueue.Add(note.type);
+                inputPoints[Mathf.Abs(_ipCount % inputPoints.Length)].eventQueue.Add(note.eventType);
                 if (!isReverseToggled) _ipCount++;
                 else _ipCount--;
+
+                if (_ipCount < 0)
+                {
+                    _ipCount = inputPoints.Length - 1;
+                }
+                else if (_ipCount >= inputPoints.Length)
+                {
+                    _ipCount = 0;
+                }
+
                 note.pointIndex = Mathf.Abs(_ipCount % inputPoints.Length);
                 LevelDataContainer.Instance.spawnedNotes[Mathf.Abs(_ipCount % inputPoints.Length)].Add(note);
                 previousNote = note;
@@ -74,20 +83,25 @@ public class CircleController : MonoBehaviour
                     LevelDataContainer.Instance.timeGap =
                         LevelDataContainer.Instance.waitingForSpawnNotes[1].startTime - note.startTime;
                 }
-                
-                LevelDataContainer.Instance.spawnedNotes[_moveCount % starPoints.Length].Add(note);
-                _sequence.Insert(0, circle.DOMove(starPoints[_moveCount % starPoints.Length].position, LevelDataContainer.Instance.timeGap / 2f * 0.001f));
-                _sequence.Insert(LevelDataContainer.Instance.timeGap / 2f * 0.001f ,
-                    circle.DOMove(starPoints[_moveCount % starPoints.Length].position, LevelDataContainer.Instance.timeGap / 2f * 0.001f));
+
+                _sequence.Insert(0,
+                    circle.DOMove(starPoints[_moveCount % starPoints.Length].position,
+                        LevelDataContainer.Instance.timeGap / 2f * 0.001f));
+                _sequence.Insert(LevelDataContainer.Instance.timeGap / 2f * 0.001f,
+                    circle.DOMove(starPoints[_moveCount % starPoints.Length].position,
+                        LevelDataContainer.Instance.timeGap / 2f * 0.001f));
                 previousNote = note;
             }
         }
-        
-        for (var i = 0; i < inputPoints.Length; i++)
+
+        inputPoints[0].typeQueue.RemoveAt(0);
+        inputPoints[0].eventQueue.RemoveAt(0);
+
+        foreach (var t in inputPoints)
         {
-            var result = inputPoints[i].typeQueue.TryDequeue(out var type);
-            if (!result) continue;
-            inputPoints[i].spriteRenderer.color =
+            if (t.typeQueue.Count == 0) continue;
+            var type = t.typeQueue[0];
+            t.spriteRenderer.color =
                 type switch
                 {
                     NoteType.Normal => Color.white,
@@ -95,55 +109,61 @@ public class CircleController : MonoBehaviour
                     _ => Color.blue
                 };
         }
-        
-        for (var i = 0; i < inputPoints.Length; i++)
+
+        foreach (var t in inputPoints)
         {
-            var result = inputPoints[i].eventQueue.TryDequeue(out var type);
-            if (!result) continue;
+            if (t.eventQueue.Count == 0) continue;
+            var type = t.eventQueue[0];
             if (type == NoteEventType.Reverse)
             {
-                inputPoints[i].spriteRenderer.color = Color.yellow;
+                t.spriteRenderer.color = Color.yellow;
             }
         }
-        
-        LevelDataContainer.Instance.spawnedNotes[0].RemoveAt(0);
-        var res = inputPoints[0].typeQueue.TryDequeue(out var tp);
-        if (res)
-        {
-            inputPoints[0].spriteRenderer.color =
-                tp switch
-                {
-                    NoteType.Normal => Color.white,
-                    NoteType.Fast => Color.red,
-                    _ => Color.blue
-                };
-        }
-        var res2 = inputPoints[0].eventQueue.TryDequeue(out var tp1);
-        if (res2)
-        {
-            if (tp1 == NoteEventType.Reverse)
-            {
-                inputPoints[0].spriteRenderer.color = Color.yellow;
-            }
-        }
+
+        _isLoaded = true;
+    }
+
+    private void StartLoad()
+    {
+        LevelDataContainer.Instance.Load(OnLoadComplete);
     }
 
     private void Update()
     {
-        _sequence.GotoWithCallbacks(timer.Time);
+        if (!_isLoaded) return;
+        _sequence.Goto(timer.Time);
     }
 
-    private void AddNextTween(ref Sequence sequence, float time, float duration, bool lastNote = false, bool isReverse = false)
+    private void AddNextTween(ref Sequence sequence, float time, float duration, bool isReverse = false)
     {
         if (!isReverse) ++_moveCount;
         else --_moveCount;
-        sequence.Insert(time, circle.DOMove(starPoints[Mathf.Abs(_moveCount % starPoints.Length)].position, duration / 2));
-        if (!lastNote)
+
+        if (_moveCount < 0) // 0보다 작으면 반대로 가야함
         {
-            if (!isReverse) ++_moveCount;
-            else --_moveCount;
-            sequence.Insert(time + duration / 2,
-                circle.DOMove(starPoints[Mathf.Abs(_moveCount % starPoints.Length)].position, duration / 2));
+            _moveCount = starPoints.Length - 1;
         }
+        else if (_moveCount >= starPoints.Length) // 9보다 크면 다시 순회
+        {
+            _moveCount = 0;
+        }
+
+        sequence.Insert(time,
+            circle.DOMove(starPoints[Mathf.Abs(_moveCount % starPoints.Length)].position, duration / 2));
+
+        if (!isReverse) ++_moveCount;
+        else --_moveCount;
+
+        if (_moveCount < 0) // 0보다 작으면 반대로 가야함
+        {
+            _moveCount = starPoints.Length - 1;
+        }
+        else if (_moveCount >= starPoints.Length) // 9보다 크면 다시 순회
+        {
+            _moveCount = 0;
+        }
+
+        sequence.Insert(time + duration / 2,
+            circle.DOMove(starPoints[Mathf.Abs(_moveCount % starPoints.Length)].position, duration / 2));
     }
 }

@@ -5,13 +5,14 @@ using UnityEngine;
 public class InputPoint : MonoBehaviour
 {
     public int number;
-    public Queue<NoteType> typeQueue = new();
-    public Queue<NoteEventType> eventQueue = new();
+    public int ptr = 1;
+    public List<NoteType> typeQueue = new();
+    public List<NoteEventType> eventQueue = new();
     public SpriteRenderer spriteRenderer;
     public Animator animator;
 
     public void PlayHitAnim()
     {
-        animator.Play("HitAnimation");
+        animator.Play("HitAnimation", -1, 0);
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using DG.Tweening;
 using TMPro;
@@ -32,7 +31,7 @@ public class LevelList : MonoBehaviour
         if (_count == 1) return;
         _count = 1;
         body.DOKill();
-        body.DOMoveX(rightTf.transform.position.x, 0.5f).SetEase(Ease.OutQuart).Play();       
+        body.DOMoveX(rightTf.transform.position.x, 0.5f).SetEase(Ease.OutQuart).Play();
         titleText.text = titles[_count];
     }
 
@@ -40,38 +39,20 @@ public class LevelList : MonoBehaviour
     {
         DOTween.KillAll();
         GameManager.CurrentScene = "SampleScene";
-        if (Application.isMobilePlatform && !Application.isEditor)
-        {
-            GameManager.LevelPath = Path.GetFullPath(Application.persistentDataPath + "/" + "RPG" + "/" +
-                                                     "artist - title (asj0216) [Easy].osu");
-            print(GameManager.LevelPath);
-        }
-        else
-        {
-            GameManager.LevelPath = Path.GetFullPath(Application.streamingAssetsPath + "\\" + "RPG" + "\\" +
-                                                     "artist - title (asj0216) [Easy].osu");
-        }
-        
-        SceneManager.LoadScene("SampleScene");
+        GameManager.LevelPath = Path.GetFullPath(Path.Join(Application.streamingAssetsPath, "RPG",
+            "artist - title (asj0216) [Easy].osu"));
+
+        SceneManager.LoadScene("GameScene 0");
     }
-    
+
     public void SceneTwo()
     {
         DOTween.KillAll();
         GameManager.CurrentScene = "SampleScene 1";
-        if (Application.isMobilePlatform && !Application.isEditor)
-        {
-            GameManager.LevelPath = Path.GetFullPath(Application.persistentDataPath + "/" + "R" + "/" +
-                                                     "Plum - R (asj0216) [ForHanseithon].osu");
-            print(GameManager.LevelPath);
-        }
-        else
-        {
-            GameManager.LevelPath = Path.GetFullPath(Application.streamingAssetsPath + "\\" + "R" + "\\" +
-                                                     "Plum - R (asj0216) [ForHanseithon].osu");
-        }
-        
-        SceneManager.LoadScene("SampleScene 1");
+        GameManager.LevelPath = Path.GetFullPath(Path.Join(Application.streamingAssetsPath, "R",
+            "Plum - R (asj0216) [ForHanseithon].osu"));
+
+        SceneManager.LoadScene("GameScene 1");
     }
 
     public void BackToTitle()

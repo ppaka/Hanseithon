@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class LevelDataContainer : MonoBehaviour
 {
@@ -34,10 +38,10 @@ public class LevelDataContainer : MonoBehaviour
     }
 
     public List<Note.Note> waitingForSpawnNotes = new();
-    public List<Note.Note>[] spawnedNotes = {new(), new(), new(), new(), new()};
+    public readonly List<Note.Note>[] spawnedNotes = { new(), new(), new(), new(), new() };
     public int timeGap;
 
-    public void ResetData()
+    private void ResetData()
     {
         waitingForSpawnNotes.Clear();
         foreach (var list in spawnedNotes)
@@ -46,34 +50,49 @@ public class LevelDataContainer : MonoBehaviour
         }
     }
 
-    public void Load()
+    private IEnumerator Routine(Action onComplete)
     {
-        ResetData();
-        var beatmap = OsuParsers.Decoders.BeatmapDecoder.Decode(GameManager.LevelPath);
+        var www = UnityWebRequest.Get(GameManager.LevelPath);
+        yield return www.SendWebRequest();
 
-        var count = 0;
-        foreach (var obj in beatmap.HitObjects)
+        if (www.result is UnityWebRequest.Result.ConnectionError or UnityWebRequest.Result.ProtocolError)
+            Debug.Log(www.error);
+        else
         {
-            count++;
-            var isLast = count == beatmap.HitObjects.Count;
+            ResetData();
+            var beatmap = OsuParsers.Decoders.BeatmapDecoder.Decode(new MemoryStream(www.downloadHandler.data));
 
-            var index = Mathf.FloorToInt(obj.Position.X * 4 / 512);
-
-            var eventType = index switch
+            var count = 0;
+            foreach (var obj in beatmap.HitObjects)
             {
-                0 => Note.NoteEventType.Normal,
-                1 => Note.NoteEventType.Reverse,
-                _ => Note.NoteEventType.Normal
-            };
+                count++;
+                var isLast = count == beatmap.HitObjects.Count;
 
-            var note = new Note.Note
-            {
-                startTime = obj.StartTime,
-                endTime = obj.EndTime,
-                eventType = eventType,
-                lastNote = isLast
-            };
-            waitingForSpawnNotes.Add(note);
+                var index = Mathf.FloorToInt(obj.Position.X * 4 / 512);
+
+                var eventType = index switch
+                {
+                    0 => Note.NoteEventType.Normal,
+                    1 => Note.NoteEventType.Reverse,
+                    _ => Note.NoteEventType.Normal
+                };
+
+                var note = new Note.Note
+                {
+                    startTime = obj.StartTime,
+                    endTime = obj.EndTime,
+                    eventType = eventType,
+                    lastNote = isLast
+                };
+                waitingForSpawnNotes.Add(note);
+            }
         }
+
+        onComplete.Invoke();
+    }
+
+    public void Load(Action onComplete)
+    {
+        StartCoroutine(Routine(onComplete));
     }
 }
