@@ -9432,7 +9432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 1642566733}
-  slider: {fileID: 0}
+  slider: {fileID: 123318229}
 --- !u!1 &1288664363
 GameObject:
   m_ObjectHideFlags: 0

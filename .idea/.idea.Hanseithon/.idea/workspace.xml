@@ -1,36 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4ef35d84-70a9-4180-b6f3-e5047aad9b4c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene 0.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene 0.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene 1.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene 1.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/RPG/artist - title (asj0216) [New].osu" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/RPG/artist - title (asj0216) [New].osu.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TitleSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TitleSettings.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hanseithon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hanseithon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CircleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CircleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/PyeongChangPeace-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/PyeongChangPeace-Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InputPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JudgementManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JudgementManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelDataContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelDataContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene 1.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene 1.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Title.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Title.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/RPG/artist - title (asj0216) [Easy].osu.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/RPG/artist - title (asj0216) [Easy].osu.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/RPG/audio.mp3.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/RPG/audio.mp3.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-    </list>
+    <list default="true" id="4ef35d84-70a9-4180-b6f3-e5047aad9b4c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +12,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/InputPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LevelList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PauseManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/Unity/Hanseithon/Assets/StreamingAssets/RPG/artist - title (asj0216) [Easy].osu.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TitleScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TitleSettings.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -55,17 +27,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Build\Starcall.exe" />
@@ -116,8 +88,16 @@
       <workItem from="1658356867445" duration="10696000" />
       <workItem from="1658371867024" duration="6014000" />
       <workItem from="1658468820306" duration="24000" />
-      <workItem from="1661185672967" duration="8947000" />
+      <workItem from="1661185672967" duration="9035000" />
     </task>
+    <task id="LOCAL-00001" summary="버그 수정, 소리 설정 구현, 설정 값 저장">
+      <created>1661194685128</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1661194685128</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
@@ -137,5 +117,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="버그 수정, 소리 설정 구현, 설정 값 저장" />
+    <option name="LAST_COMMIT_MESSAGE" value="버그 수정, 소리 설정 구현, 설정 값 저장" />
   </component>
 </project>
