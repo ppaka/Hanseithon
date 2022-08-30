@@ -7,14 +7,17 @@ using UnityEngine;
 public class JudgementManager : MonoBehaviour
 {
     public GameTimer timer;
-    public int[] judgementLevel = { 48, 88, 138, 200 };
-    public string[] judgementStrings = { "Perfect", "Great", "Good", "Bad" };
+    public int[] judgementLevel = { 52, 98, 138, 200 };
+    // public string[] judgementStrings = { "Perfect", "Great", "Good", "Bad" };
+    public int[] judgementScore = { 100, 75, 25, 0 };
     public CircleController circleController;
     public CanvasGroup overGroup;
     public RectTransform clearRetryButton, clearRetryButtonEnd, clearBackButton, clearBackButtonEnd;
     private bool _gameOver;
     public TMP_Text hpText;
     private int _hp = 5;
+
+    public int currentScore;
 
     private void Update()
     {
@@ -97,14 +100,17 @@ public class JudgementManager : MonoBehaviour
     public void OnInput(int index)
     {
         if (!timer.gameStarted || _gameOver) return;
-        foreach (var t in judgementLevel)
+        for (var i = 0; i < judgementLevel.Length; i++)
         {
+            var t = judgementLevel[i];
             if (LevelDataContainer.Instance.spawnedNotes[index].Count == 0) return;
             var note = LevelDataContainer.Instance.spawnedNotes[index][0];
             if (!(timer.TimeAsMs - note.startTime >= -t)
                 || !(timer.TimeAsMs - note.startTime <= t)) continue;
             LevelDataContainer.Instance.spawnedNotes[index].RemoveAt(0);
             //print(judgementStrings[i]);
+            currentScore += judgementScore[i];
+            print(currentScore);
             circleController.inputPoints[note.pointIndex].PlayHitAnim();
             if (note.lastNote)
             {
