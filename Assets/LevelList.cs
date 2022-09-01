@@ -38,8 +38,8 @@ public class LevelList : MonoBehaviour
     public void SceneOne()
     {
         DOTween.KillAll();
-        GameManager.LevelPath = Path.GetFullPath(Path.Join(Application.streamingAssetsPath, "RPG",
-            "artist - title (asj0216) [Easy].osu"));
+        GameManager.LevelPath = Path.Combine(Application.streamingAssetsPath, "RPG",
+            "artist - title (asj0216) [Easy].osu");
 
         GameManager.CurrentScene = "GameScene 0";
         SceneManager.LoadScene(GameManager.CurrentScene);
@@ -48,8 +48,8 @@ public class LevelList : MonoBehaviour
     public void SceneTwo()
     {
         DOTween.KillAll();
-        GameManager.LevelPath = Path.GetFullPath(Path.Join(Application.streamingAssetsPath, "R",
-            "Plum - R (asj0216) [ForHanseithon].osu"));
+        GameManager.LevelPath = Path.Combine(Application.streamingAssetsPath, "R",
+            "Plum - R (asj0216) [ForHanseithon].osu");
 
         GameManager.CurrentScene = "GameScene 1";
         SceneManager.LoadScene(GameManager.CurrentScene);

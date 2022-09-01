@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ef35d84-70a9-4180-b6f3-e5047aad9b4c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/ScoreBoardController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScoreBoardController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScoreListItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScoreListItem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Extensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Extensions.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hanseithon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hanseithon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/NanumGothicBold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/NanumGothicBold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelDataContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelDataContainer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +16,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/636b3e5dc45c46c3912e16d43ed5e9d91e600/6e/ba5fd6c2/BeatmapDecoder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/636b3e5dc45c46c3912e16d43ed5e9d91e600/b9/583cf850/ParseHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/InputPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LevelList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PauseManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -102,7 +102,8 @@
       <workItem from="1661872782167" duration="1655000" />
       <workItem from="1661954478114" duration="615000" />
       <workItem from="1662038315311" duration="599000" />
-      <workItem from="1662049758343" duration="984000" />
+      <workItem from="1662049758343" duration="1142000" />
+      <workItem from="1662052952374" duration="3715000" />
     </task>
     <task id="LOCAL-00001" summary="버그 수정, 소리 설정 구현, 설정 값 저장">
       <created>1661194685128</created>
@@ -132,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661874429537</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="스코어 UI 컨트롤러 스크립트 추가">
+      <created>1662052303221</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662052303221</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
@@ -156,6 +164,7 @@
     <MESSAGE value="씬 불러오기 문제 해결, 음악 볼륨 슬라이더 문제 해결" />
     <MESSAGE value="잘못된 이름 수정" />
     <MESSAGE value="크레딧 작곡가 항목 추가, 점수 시스템 구현, 판정 완화" />
-    <option name="LAST_COMMIT_MESSAGE" value="크레딧 작곡가 항목 추가, 점수 시스템 구현, 판정 완화" />
+    <MESSAGE value="스코어 UI 컨트롤러 스크립트 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="스코어 UI 컨트롤러 스크립트 추가" />
   </component>
 </project>

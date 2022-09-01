@@ -56,39 +56,42 @@ public class LevelDataContainer : MonoBehaviour
         yield return www.SendWebRequest();
 
         if (www.result is UnityWebRequest.Result.ConnectionError or UnityWebRequest.Result.ProtocolError)
-            Debug.Log(www.error);
-        else
         {
-            ResetData();
-            var beatmap = OsuParsers.Decoders.BeatmapDecoder.Decode(new MemoryStream(www.downloadHandler.data));
-
-            var count = 0;
-            foreach (var obj in beatmap.HitObjects)
-            {
-                count++;
-                var isLast = count == beatmap.HitObjects.Count;
-
-                var index = Mathf.FloorToInt(obj.Position.X * 4 / 512);
-
-                var eventType = index switch
-                {
-                    0 => Note.NoteEventType.Normal,
-                    1 => Note.NoteEventType.Reverse,
-                    _ => Note.NoteEventType.Normal
-                };
-
-                var note = new Note.Note
-                {
-                    startTime = obj.StartTime,
-                    endTime = obj.EndTime,
-                    eventType = eventType,
-                    lastNote = isLast
-                };
-                waitingForSpawnNotes.Add(note);
-            }
+            Debug.Log(GameManager.LevelPath);
+            Debug.LogError(www.error);
+            yield break;
         }
 
-        onComplete.Invoke();
+        ResetData();
+        using var sr = new StreamReader(new MemoryStream(www.downloadHandler.data, false));
+        var beatmap = OsuParsers.Decoders.BeatmapDecoder.Decode(sr.ReadAllLines());
+
+        var count = 0;
+        foreach (var obj in beatmap.HitObjects)
+        {
+            count++;
+            var isLast = count == beatmap.HitObjects.Count;
+
+            var index = Mathf.FloorToInt(obj.Position.X * 4 / 512);
+
+            var eventType = index switch
+            {
+                0 => Note.NoteEventType.Normal,
+                1 => Note.NoteEventType.Reverse,
+                _ => Note.NoteEventType.Normal
+            };
+
+            var note = new Note.Note
+            {
+                startTime = obj.StartTime,
+                endTime = obj.EndTime,
+                eventType = eventType,
+                lastNote = isLast
+            };
+            waitingForSpawnNotes.Add(note);
+        }
+
+        onComplete?.Invoke();
     }
 
     public void Load(Action onComplete)
