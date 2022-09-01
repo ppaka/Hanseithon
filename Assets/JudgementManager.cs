@@ -7,7 +7,7 @@ using UnityEngine;
 public class JudgementManager : MonoBehaviour
 {
     public GameTimer timer;
-    public int[] judgementLevel = { 52, 98, 138, 200 };
+    public int[] judgementLevel = { 52, 120, 200, 200 };
     // public string[] judgementStrings = { "Perfect", "Great", "Good", "Bad" };
     public int[] judgementScore = { 100, 75, 25, 0 };
     public CircleController circleController;
@@ -100,7 +100,7 @@ public class JudgementManager : MonoBehaviour
     public void OnInput(int index)
     {
         if (!timer.gameStarted || _gameOver) return;
-        for (var i = 0; i < judgementLevel.Length; i++)
+        for (var i = 0; i < judgementLevel.Length - 1; i++)
         {
             var t = judgementLevel[i];
             if (LevelDataContainer.Instance.spawnedNotes[index].Count == 0) return;
