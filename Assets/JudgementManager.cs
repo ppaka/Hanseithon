@@ -12,7 +12,8 @@ public class JudgementManager : MonoBehaviour
     public int[] judgementScore = { 100, 75, 25, 0 };
     public CircleController circleController;
     public CanvasGroup overGroup;
-    public RectTransform clearRetryButton, clearRetryButtonEnd, clearBackButton, clearBackButtonEnd;
+    public RectTransform clearRetryButton, clearRetryButtonEnd, clearBackButton, clearBackButtonEnd,
+    clearScoreButton, clearScoreButtonEnd;
     private bool _gameOver;
     public TMP_Text hpText;
     private int _hp = 5;
@@ -79,7 +80,6 @@ public class JudgementManager : MonoBehaviour
                 }
 
                 hpText.text = _hp.ToString();
-
                 if (note.lastNote)
                 {
                     timer.pauseButton.SetActive(false);
@@ -91,6 +91,11 @@ public class JudgementManager : MonoBehaviour
                                 .SetUpdate(true).SetDelay(0.4f).Play();
                             clearBackButton.DOMoveX(clearBackButtonEnd.position.x, 0.3f).SetEase(Ease.OutQuad)
                                 .SetUpdate(true).SetDelay(0.6f).Play();
+                            if (clearScoreButton)
+                            {
+                                clearScoreButton.DOMoveX(clearScoreButtonEnd.position.x, 0.3f)
+                                    .SetEase(Ease.OutQuad).SetUpdate(true).SetDelay(0.2f).Play();
+                            }
                         }).Play();
                 }
             }
@@ -123,6 +128,11 @@ public class JudgementManager : MonoBehaviour
                             .SetUpdate(true).SetDelay(0.4f).Play();
                         clearBackButton.DOMoveX(clearBackButtonEnd.position.x, 0.3f).SetEase(Ease.OutQuad)
                             .SetUpdate(true).SetDelay(0.6f).Play();
+                        if (clearScoreButton)
+                        {
+                            clearScoreButton.DOMoveX(clearScoreButtonEnd.position.x, 0.3f)
+                                .SetEase(Ease.OutQuad).SetUpdate(true).SetDelay(0.2f).Play();
+                        }
                     }).Play();
             }
 
