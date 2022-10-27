@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ef35d84-70a9-4180-b6f3-e5047aad9b4c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/ScoreListItem.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScoreListItem.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hanseithon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hanseithon/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Fonts/NanumGothicBold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/NanumGothicBold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JudgementManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JudgementManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/LevelDataContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelDataContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScoreBoardController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScoreBoardController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +53,7 @@
       <method v="2" />
     </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="B:\Unity\2021.3.8f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="B:\Unity\2021.3.12f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\MyFolder\Projects\Unity\Hanseithon -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\MyFolder\Projects\Unity\Hanseithon" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -107,7 +101,8 @@
       <workItem from="1662038315311" duration="599000" />
       <workItem from="1662049758343" duration="1142000" />
       <workItem from="1662052952374" duration="4560000" />
-      <workItem from="1662193638681" duration="3210000" />
+      <workItem from="1662193638681" duration="3339000" />
+      <workItem from="1662388317495" duration="648000" />
     </task>
     <task id="LOCAL-00001" summary="버그 수정, 소리 설정 구현, 설정 값 저장">
       <created>1661194685128</created>
@@ -165,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662057513108</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="점수판 기능 구현">
+      <created>1662198317130</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1662198317130</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
@@ -193,6 +195,7 @@
     <MESSAGE value="파일 읽기 버그 수정" />
     <MESSAGE value="플레이어 설정 변경" />
     <MESSAGE value="판정 완화" />
-    <option name="LAST_COMMIT_MESSAGE" value="판정 완화" />
+    <MESSAGE value="점수판 기능 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="점수판 기능 구현" />
   </component>
 </project>

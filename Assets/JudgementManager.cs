@@ -113,9 +113,9 @@ public class JudgementManager : MonoBehaviour
             if (!(timer.TimeAsMs - note.startTime >= -t)
                 || !(timer.TimeAsMs - note.startTime <= t)) continue;
             LevelDataContainer.Instance.spawnedNotes[index].RemoveAt(0);
-            //print(judgementStrings[i]);
+            // print(judgementStrings[i]);
             currentScore += judgementScore[i];
-            print(currentScore);
+            // print(currentScore);
             circleController.inputPoints[note.pointIndex].PlayHitAnim();
             if (note.lastNote)
             {
