@@ -85,10 +85,10 @@ public class CircleController : MonoBehaviour
                 }
 
                 _sequence.Insert(0,
-                    circle.DOMove(starPoints[_moveCount % starPoints.Length].position,
+                    circle.DOLocalMove(starPoints[_moveCount % starPoints.Length].localPosition,
                         LevelDataContainer.Instance.timeGap / 2f * 0.001f));
                 _sequence.Insert(LevelDataContainer.Instance.timeGap / 2f * 0.001f,
-                    circle.DOMove(starPoints[_moveCount % starPoints.Length].position,
+                    circle.DOLocalMove(starPoints[_moveCount % starPoints.Length].localPosition,
                         LevelDataContainer.Instance.timeGap / 2f * 0.001f));
                 previousNote = note;
             }
@@ -149,7 +149,7 @@ public class CircleController : MonoBehaviour
         }
 
         sequence.Insert(time,
-            circle.DOMove(starPoints[Mathf.Abs(_moveCount % starPoints.Length)].position, duration / 2));
+            circle.DOLocalMove(starPoints[Mathf.Abs(_moveCount % starPoints.Length)].localPosition, duration / 2));
 
         if (!isReverse) ++_moveCount;
         else --_moveCount;
@@ -164,6 +164,6 @@ public class CircleController : MonoBehaviour
         }
 
         sequence.Insert(time + duration / 2,
-            circle.DOMove(starPoints[Mathf.Abs(_moveCount % starPoints.Length)].position, duration / 2));
+            circle.DOLocalMove(starPoints[Mathf.Abs(_moveCount % starPoints.Length)].localPosition, duration / 2));
     }
 }
