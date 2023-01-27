@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4ef35d84-70a9-4180-b6f3-e5047aad9b4c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hanseithon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hanseithon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/NanumGothicBold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/NanumGothicBold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelDataContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelDataContainer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +13,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/636b3e5dc45c46c3912e16d43ed5e9d91e600/6e/ba5fd6c2/BeatmapDecoder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/636b3e5dc45c46c3912e16d43ed5e9d91e600/b9/583cf850/ParseHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/InputPoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/Projects/Unity/Hanseithon/Assets/JudgementManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LevelList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PauseManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ScoreListItem.cs" root0="FORCE_HIGHLIGHTING" />
@@ -52,8 +51,16 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="B:\Unity\2021.3.17f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath D:\Projects\Unity\Hanseithon -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\Projects\Unity\Hanseithon" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="B:\Unity\2021.3.12f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="B:\Unity\2021.3.17f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\MyFolder\Projects\Unity\Hanseithon -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\MyFolder\Projects\Unity\Hanseithon" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -103,6 +110,7 @@
       <workItem from="1662052952374" duration="4560000" />
       <workItem from="1662193638681" duration="3339000" />
       <workItem from="1662388317495" duration="648000" />
+      <workItem from="1666870191154" duration="809000" />
     </task>
     <task id="LOCAL-00001" summary="버그 수정, 소리 설정 구현, 설정 값 저장">
       <created>1661194685128</created>
@@ -167,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662198317130</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="로깅 제거">
+      <created>1666870402918</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666870402918</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
@@ -196,6 +211,7 @@
     <MESSAGE value="플레이어 설정 변경" />
     <MESSAGE value="판정 완화" />
     <MESSAGE value="점수판 기능 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="점수판 기능 구현" />
+    <MESSAGE value="로깅 제거" />
+    <option name="LAST_COMMIT_MESSAGE" value="로깅 제거" />
   </component>
 </project>
