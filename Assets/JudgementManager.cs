@@ -35,7 +35,10 @@ public class JudgementManager : MonoBehaviour
                 overGroup.gameObject.SetActive(true);
                 _gameOver = true;
                 overGroup.DOFade(1, 1).SetUpdate(true).OnComplete(() => { overGroup.interactable = true; }).Play();
+#if !UNITY_WEBGL && !UNITY_EDITOR
                 timer.audioSource.DOPitch(0, 1).SetUpdate(true).Play();
+#endif
+                timer.audioSource.DOFade(0, 1).SetUpdate(true).Play();
                 DOTween.To(() => Time.timeScale, value => Time.timeScale = value, 0, 1).SetUpdate(true).Play();
             }
             else

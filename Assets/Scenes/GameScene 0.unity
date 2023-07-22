@@ -900,6 +900,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &205221894
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1090,6 +1091,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &280640329
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2106,6 +2108,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &646168236
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4825,6 +4828,7 @@ MonoBehaviour:
   pauseButton: {fileID: 1391801562}
   countText: {fileID: 992630467}
   hpObject: {fileID: 685468735}
+  offset: -0.04
 --- !u!114 &1279050039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4932,6 +4936,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1288664365
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6154,6 +6159,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1473310107
 SpriteRenderer:
   m_ObjectHideFlags: 0

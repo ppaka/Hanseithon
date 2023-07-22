@@ -42,6 +42,7 @@ public class LevelList : MonoBehaviour
             "artist - title (asj0216) [Easy].osu");
 
         GameManager.CurrentScene = "GameScene 0";
+        LevelDataContainer.Instance.offsetMs = -30;
         SceneManager.LoadScene(GameManager.CurrentScene);
     }
 
@@ -52,6 +53,7 @@ public class LevelList : MonoBehaviour
             "Plum - R (asj0216) [ForHanseithon].osu");
 
         GameManager.CurrentScene = "GameScene 1";
+        LevelDataContainer.Instance.offsetMs = -50;
         SceneManager.LoadScene(GameManager.CurrentScene);
     }
 

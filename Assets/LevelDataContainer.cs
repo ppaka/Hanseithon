@@ -40,6 +40,7 @@ public class LevelDataContainer : MonoBehaviour
     public List<Note.Note> waitingForSpawnNotes = new();
     public readonly List<Note.Note>[] spawnedNotes = { new(), new(), new(), new(), new() };
     public int timeGap;
+    public int offsetMs;
 
     private void ResetData()
     {
@@ -83,8 +84,8 @@ public class LevelDataContainer : MonoBehaviour
 
             var note = new Note.Note
             {
-                startTime = obj.StartTime,
-                endTime = obj.EndTime,
+                startTime = obj.StartTime - offsetMs,
+                endTime = obj.EndTime - offsetMs,
                 eventType = eventType,
                 lastNote = isLast
             };
