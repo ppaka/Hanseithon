@@ -4,26 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ef35d84-70a9-4180-b6f3-e5047aad9b4c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/WebGLTemplates.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/WebGLTemplates/BetterMinimal.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/WebGLTemplates/BetterMinimal/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/WebGLTemplates/BetterMinimal/index.html.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/WebGLTemplates/BetterMinimal/thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/WebGLTemplates/BetterMinimal/thumbnail.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_WebGL.json" afterDir="false" />
+    <list default="true" id="4ef35d84-70a9-4180-b6f3-e5047aad9b4c" name="Changes" comment="WebGL 플랫폼일 경우 나가기 버튼 비활성화">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hanseithon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hanseithon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelDataContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelDataContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/R.ogg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/R.ogg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RPG.ogg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RPG.ogg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene 0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene 0.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Title.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Title.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TitleScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TitleScene.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +32,10 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
   <component name="ProjectId" id="2CCHsQRgmUWLQT8iMXbqCXVXQSL" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -75,15 +63,15 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\asj02\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\asj02\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\asj02\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\asj02\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
       "C:\\Users\\asj02\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.28f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.29f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\Projects\Unity\Hanseithon -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Projects\Unity\Hanseithon" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -123,7 +111,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.28f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.29f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath D:\Projects\Unity\Hanseithon -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Projects\Unity\Hanseithon" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -174,7 +162,8 @@
       <workItem from="1662193638681" duration="3339000" />
       <workItem from="1662388317495" duration="648000" />
       <workItem from="1666870191154" duration="809000" />
-      <workItem from="1690031402667" duration="1719000" />
+      <workItem from="1690031402667" duration="2247000" />
+      <workItem from="1692803717193" duration="351000" />
     </task>
     <task id="LOCAL-00001" summary="버그 수정, 소리 설정 구현, 설정 값 저장">
       <created>1661194685128</created>
@@ -246,7 +235,55 @@
       <option name="project" value="LOCAL" />
       <updated>1666870402918</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="레벨 오프셋 설정, WebGL 빌드 준비">
+      <option name="closed" value="true" />
+      <created>1690033841334</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1690033841334</updated>
+    </task>
+    <task id="LOCAL-00012" summary="프로젝트 업데이트">
+      <option name="closed" value="true" />
+      <created>1692803986488</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1692803986488</updated>
+    </task>
+    <task id="LOCAL-00013" summary="WebGL 압축 설정 변경">
+      <option name="closed" value="true" />
+      <created>1692804009052</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1692804009052</updated>
+    </task>
+    <task id="LOCAL-00014" summary="버전 코드 수정">
+      <option name="closed" value="true" />
+      <created>1692804016461</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1692804016461</updated>
+    </task>
+    <task id="LOCAL-00015" summary="오디오 버퍼 크기 조절">
+      <option name="closed" value="true" />
+      <created>1692804036393</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1692804036393</updated>
+    </task>
+    <task id="LOCAL-00016" summary="WebGL 플랫폼일 경우 나가기 버튼 비활성화">
+      <option name="closed" value="true" />
+      <created>1692804063105</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1692804063105</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +316,12 @@
     <MESSAGE value="판정 완화" />
     <MESSAGE value="점수판 기능 구현" />
     <MESSAGE value="로깅 제거" />
-    <option name="LAST_COMMIT_MESSAGE" value="로깅 제거" />
+    <MESSAGE value="레벨 오프셋 설정, WebGL 빌드 준비" />
+    <MESSAGE value="프로젝트 업데이트" />
+    <MESSAGE value="WebGL 압축 설정 변경" />
+    <MESSAGE value="버전 코드 수정" />
+    <MESSAGE value="오디오 버퍼 크기 조절" />
+    <MESSAGE value="WebGL 플랫폼일 경우 나가기 버튼 비활성화" />
+    <option name="LAST_COMMIT_MESSAGE" value="WebGL 플랫폼일 경우 나가기 버튼 비활성화" />
   </component>
 </project>
