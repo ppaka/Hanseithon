@@ -5,4 +5,4 @@
 
 윈도우 | 안드로이드 | 웹 브라우저
 ---------- | ---------- | ----------
-[링크](https://github.com/ppaka/KaneDance/releases/latest/download/Starcaller_Win.zip) | [링크](https://github.com/ppaka/KaneDance/releases/latest/download/Starcaller.apk) | [itch.io](https://ppaka.itch.io/starcaller)
+[링크](https://github.com/ppaka/Hanseithon/releases/latest/download/Starcaller_Win.zip) | [링크](https://github.com/ppaka/Hanseithon/releases/latest/download/Starcaller.apk) | [itch.io](https://ppaka.itch.io/starcaller)
