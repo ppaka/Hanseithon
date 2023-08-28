@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class LevelDataContainer : MonoBehaviour
 {
@@ -53,7 +52,7 @@ public class LevelDataContainer : MonoBehaviour
 
     private IEnumerator Routine(Action onComplete)
     {
-        var www = UnityWebRequest.Get(GameManager.LevelPath);
+        /*var www = UnityWebRequest.Get(GameManager.LevelPath);
         yield return www.SendWebRequest();
 
         if (www.result is UnityWebRequest.Result.ConnectionError or UnityWebRequest.Result.ProtocolError)
@@ -61,10 +60,11 @@ public class LevelDataContainer : MonoBehaviour
             Debug.Log(GameManager.LevelPath);
             Debug.LogError(www.error);
             yield break;
-        }
+        }*/
+        var asset = Resources.Load<TextAsset>(GameManager.LevelPath);
 
         ResetData();
-        using var sr = new StreamReader(new MemoryStream(www.downloadHandler.data, false));
+        using var sr = new StreamReader(new MemoryStream(asset.bytes, false));
         var beatmap = OsuParsers.Decoders.BeatmapDecoder.Decode(sr.ReadAllLines());
 
         var count = 0;
@@ -93,6 +93,7 @@ public class LevelDataContainer : MonoBehaviour
         }
 
         onComplete?.Invoke();
+        yield return null;
     }
 
     public void Load(Action onComplete)

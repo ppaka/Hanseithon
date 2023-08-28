@@ -1,0 +1,93 @@
+osu file format v14
+
+[General]
+AudioFilename: audio.mp3
+AudioLeadIn: 0
+PreviewTime: -1
+Countdown: 0
+SampleSet: Normal
+StackLeniency: 0.7
+Mode: 3
+LetterboxInBreaks: 0
+SpecialStyle: 0
+WidescreenStoryboard: 0
+
+[Editor]
+DistanceSpacing: 0.8
+BeatDivisor: 1
+GridSize: 4
+TimelineZoom: 1
+
+[Metadata]
+Title:title
+TitleUnicode:title
+Artist:artist
+ArtistUnicode:artist
+Creator:asj0216
+Version:Easy
+Source:
+Tags:
+BeatmapID:0
+BeatmapSetID:-1
+
+[Difficulty]
+HPDrainRate:5
+CircleSize:4
+OverallDifficulty:5
+ApproachRate:5
+SliderMultiplier:1.4
+SliderTickRate:1
+
+[Events]
+//Background and Video events
+//Break Periods
+//Storyboard Layer 0 (Background)
+//Storyboard Layer 1 (Fail)
+//Storyboard Layer 2 (Pass)
+//Storyboard Layer 3 (Foreground)
+//Storyboard Layer 4 (Overlay)
+//Storyboard Sound Samples
+
+[TimingPoints]
+0.457341129498733,319.148936170213,4,1,0,100,1,0
+
+
+[HitObjects]
+64,192,0,5,0,0:0:0:0:
+64,192,1277,1,0,0:0:0:0:
+64,192,2553,1,0,0:0:0:0:
+64,192,3830,1,0,0:0:0:0:
+64,192,5106,1,0,0:0:0:0:
+64,192,6383,1,0,0:0:0:0:
+64,192,7660,1,0,0:0:0:0:
+64,192,8936,1,0,0:0:0:0:
+192,192,10213,1,0,0:0:0:0:
+64,192,11489,1,0,0:0:0:0:
+192,192,12766,1,0,0:0:0:0:
+64,192,14043,1,0,0:0:0:0:
+192,192,15319,1,0,0:0:0:0:
+192,192,16596,1,0,0:0:0:0:
+64,192,17872,1,0,0:0:0:0:
+64,192,18511,1,0,0:0:0:0:
+64,192,19149,1,0,0:0:0:0:
+64,192,20425,1,0,0:0:0:0:
+64,192,21064,1,0,0:0:0:0:
+64,192,21702,1,0,0:0:0:0:
+64,192,22979,1,0,0:0:0:0:
+64,192,23617,1,0,0:0:0:0:
+64,192,24255,1,0,0:0:0:0:
+64,192,25532,1,0,0:0:0:0:
+64,192,26170,1,0,0:0:0:0:
+64,192,26808,1,0,0:0:0:0:
+192,192,28085,1,0,0:0:0:0:
+64,192,29362,1,0,0:0:0:0:
+192,192,30638,1,0,0:0:0:0:
+64,192,31277,1,0,0:0:0:0:
+64,192,31915,1,0,0:0:0:0:
+64,192,33191,1,0,0:0:0:0:
+64,192,33830,1,0,0:0:0:0:
+64,192,34468,1,0,0:0:0:0:
+64,192,35745,1,0,0:0:0:0:
+192,192,37021,1,0,0:0:0:0:
+192,192,38298,1,0,0:0:0:0:
+64,192,39574,1,0,0:0:0:0:

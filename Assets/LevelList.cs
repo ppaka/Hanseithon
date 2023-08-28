@@ -38,8 +38,7 @@ public class LevelList : MonoBehaviour
     public void SceneOne()
     {
         DOTween.KillAll();
-        GameManager.LevelPath = Path.Combine(Application.streamingAssetsPath, "RPG",
-            "artist - title (asj0216) [Easy].osu");
+        GameManager.LevelPath = "artist - title (asj0216) [Easy]";
 
         GameManager.CurrentScene = "GameScene 0";
         LevelDataContainer.Instance.offsetMs = -30;
@@ -49,8 +48,7 @@ public class LevelList : MonoBehaviour
     public void SceneTwo()
     {
         DOTween.KillAll();
-        GameManager.LevelPath = Path.Combine(Application.streamingAssetsPath, "R",
-            "Plum - R (asj0216) [ForHanseithon].osu");
+        GameManager.LevelPath = "Plum - R (asj0216) [ForHanseithon]";
 
         GameManager.CurrentScene = "GameScene 1";
         LevelDataContainer.Instance.offsetMs = -50;
